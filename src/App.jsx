@@ -1,6 +1,7 @@
 
 import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 
 function Box(props) {
   // This reference will give us direct access to the mesh
@@ -32,6 +33,8 @@ function App(){
     <pointLight position={[10, 10, 10]} />
     <Box position={[0, 0, 0]} />
     {/* <Box position={[1.2, 0, 0]} /> */}
+    <OrbitControls />
+
   </Canvas>
   )
 }
