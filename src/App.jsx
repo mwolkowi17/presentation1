@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Plane1 } from './Plane'
 import { OrbitControls } from '@react-three/drei'
+import { Box2 } from './Box2'
 
 function Box(props) {
   // This reference will give us direct access to the mesh
@@ -38,6 +39,7 @@ function App(){
     <Plane1 position={[0, 0, -2]} />
     {/* <Plane1 position={[0,-3,2]} />
     <OrbitControls /> */}
+    <Box2 position={[5,0,0]} />
 
   </Canvas>
   )
