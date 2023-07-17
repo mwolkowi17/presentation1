@@ -1,6 +1,6 @@
 
 //import React, { useRef, useState } from 'react'
-import React from 'react'
+import React, { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Plane1 } from './Plane'
 //import { OrbitControls } from '@react-three/drei'
@@ -32,7 +32,9 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 // }
 
 function App(){
-  const colorMap = useLoader(TextureLoader, 'hero3.jpg')
+  const [pictSource,pictSourceSet]=useState('hero3.jpg')
+  const colorMap = useLoader(TextureLoader, pictSource)
+  
   return(
   <Canvas>
     <ambientLight />
@@ -43,7 +45,7 @@ function App(){
     <Plane1 position={[0, 0, -2]} map={colorMap} />
     {/* <Plane1 position={[0,-3,2]} />
     <OrbitControls /> */}
-    <Box2 position={[5,0,0]} action={(event) => console.log('click2')} />
+    <Box2 position={[5,0,0]} action={(event) => pictSourceSet('hero8.jpg')} />
 
   </Canvas>
   )
