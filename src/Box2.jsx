@@ -14,7 +14,7 @@ export function Box2(props) {
         {...props}
         ref={meshRef}
         scale={active ? 1.5 : 1}
-        onClick={(event) => setActive(!active)}
+        onClick={props.action}
         onPointerOver={(event) => setHover(true)}
         onPointerOut={(event) => setHover(false)}>
         <boxGeometry args={[1, 1, .5]} />
