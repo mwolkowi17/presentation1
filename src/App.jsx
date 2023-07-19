@@ -8,14 +8,17 @@ import { Box2 } from './Box2'
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { Suspense } from 'react'
+import { imagelist } from './Collection'
+
 
 
 
 function App() {
-  const [pictSource, pictSourceSet] = useState(true)
-  const colorMap = useLoader(TextureLoader, (pictSource ? 'hero3.jpg' : 'hero8.jpg'))
-
-
+  const colorMap2 = useLoader(TextureLoader,imagelist[0])
+  const colorMap3 = useLoader(TextureLoader,imagelist[1])
+  const [pictSource, pictSourceSet] = useState(colorMap2)
+  //const colorMap = useLoader(TextureLoader, (pictSource ? imagelist[0] : imagelist[1]))
+  
 
   return (
     <div>
@@ -26,10 +29,10 @@ function App() {
 
 
         <Suspense fallback={<div>Loading... </div>}>
-          <Plane1 position={[0, 0, -2]} map={colorMap} />
+          <Plane1 position={[0, 0, -2]} map={pictSource} />
         </Suspense>
 
-        <Box2 position={[5, 0, 0]} action={(event) => pictSourceSet(!pictSource)} />
+        <Box2 position={[5, 0, 0]} action={(event) => pictSourceSet(colorMap3)} />
 
       </Canvas>
     </div>

@@ -1,0 +1,1 @@
+export const imagelist = ['hero3.jpg','hero8.jpg']
