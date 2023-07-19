@@ -16,7 +16,9 @@ import { imagelist } from './Collection'
 function App() {
   const colorMap2 = useLoader(TextureLoader,imagelist[0])
   const colorMap3 = useLoader(TextureLoader,imagelist[1])
-  const [pictSource, pictSourceSet] = useState(colorMap2)
+
+  const colorMapList = [colorMap2,colorMap3]
+  const [pictSource, pictSourceSet] = useState(colorMapList[0])
   //const colorMap = useLoader(TextureLoader, (pictSource ? imagelist[0] : imagelist[1]))
   
 
@@ -32,7 +34,7 @@ function App() {
           <Plane1 position={[0, 0, -2]} map={pictSource} />
         </Suspense>
 
-        <Box2 position={[5, 0, 0]} action={(event) => pictSourceSet(colorMap3)} />
+        <Box2 position={[5, 0, 0]} action={(event) => pictSourceSet(colorMapList[1])} />
 
       </Canvas>
     </div>
