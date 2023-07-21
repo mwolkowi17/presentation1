@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Plane1 } from './Plane'
-//import { OrbitControls } from '@react-three/drei'
 import { Box2 } from './Box2'
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
@@ -39,6 +38,19 @@ function App() {
    
   }
 
+  function changePictureReverse(){
+    if(n!==0){
+      n=n-1;
+      pictSourceSet(colorMapList[n])
+      console.log(n);
+      
+    }
+    else{
+      n=4
+      pictSourceSet(colorMapList[n])
+    }
+  }
+
   return (
     <div>
       <Canvas>
@@ -53,6 +65,7 @@ function App() {
 
         {/* <Box2 position={[5, 0, 0]} action={(event) => pictSourceSet(colorMapList[1])} /> */}
         <Box2 position={[5, 0, 0]} action={changePicture} />
+        <Box2 position={[-5, 0, 0]} action={changePictureReverse} />
 
       </Canvas>
     </div>
