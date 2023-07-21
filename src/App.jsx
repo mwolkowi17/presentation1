@@ -10,23 +10,33 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { Suspense } from 'react'
 import { imagelist } from './Collection'
 
-
+let n=0
 
 
 function App() {
-  let n=0
+ 
   const colorMap2 = useLoader(TextureLoader,imagelist[0])
   const colorMap3 = useLoader(TextureLoader,imagelist[1])
+  const colorMap4 = useLoader(TextureLoader,imagelist[2])
+  const colorMap5 = useLoader(TextureLoader,imagelist[3])
+  const colorMap6 = useLoader(TextureLoader,imagelist[4])
  
-  const colorMapList = [colorMap2,colorMap3]
+  const colorMapList = [colorMap2,colorMap3,colorMap4,colorMap5,colorMap6]
   const [pictSource, pictSourceSet] = useState(colorMapList[n])
   //const colorMap = useLoader(TextureLoader, (pictSource ? imagelist[0] : imagelist[1]))
   
 
   function changePicture(){
-    n=n+1;
-    pictSourceSet(colorMapList[n])
-    console.log(n)
+    if(n!==colorMapList.length){
+      n=n+1;
+      pictSourceSet(colorMapList[n])
+      console.log(n)
+    }
+    else{
+      n=0
+      pictSourceSet(colorMapList[n])
+    }
+   
   }
 
   return (
